@@ -41,9 +41,7 @@
                 name: files.name,
                 type: "binary",
                 datas: files.base64,
-                datas_fname: files.name,
-                // res_model: "mail.channel",
-                // res_id: Number(this.channel.id),
+                datas_fname: files.name,              
                 filetype: files.type,
                 filePath: files.path
             };  
@@ -53,56 +51,8 @@
 
         loadMap(){
             alert("started loading map")
-        }
-
-        // onInitFs() {  
-        //     console.log('Opened file system: ' );
-        // },
-
-        // selectFile() {
-        //     alert("choosing file")     
-
-        //     window.webkitStorageInfo.requestQuota(PERSISTENT, 1024*1024, function (grantedBytes) {  
-        //         window.requestFileSystem(window.PERSISTENT, grantedBytes, this.onInitFs(), errorHandler);
-        //     }, function (e) {
-        //         console.log('Error', e);
-        //     });
-
-        //     // var type = window.TEMPORARY;
-        //     // var size = 5*1024*1024;
-        //     // window.requestFileSystem(type, size, successCallback, errorCallback)
-
-        //     // function successCallback(fs) {
-        //     //     fs.root.getFile('log.txt', {create: true, exclusive: true}, function(fileEntry) {
-        //     //         alert('File creation successfull!')
-        //     //     }, errorCallback);
-        //     // }
-
-        //     // function errorCallback(error) {
-        //     //     alert("ERROR: " + error.code)
-        //     // }
-
-
-        //     // window.requestFileSystem(window.TEMPORARY, 0, function (fs) {
-        //     //     console.log('file system open: ' + fs.name);
-        //     //     fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
-        //     //         console.log("fileEntry is file?" + fileEntry.isFile.toString());
-        //     //         // fileEntry.name == 'someFile.txt'
-        //     //         // fileEntry.fullPath == '/someFile.txt'
-        //     //         writeFile(fileEntry, null);
-        //     //     }, this.onErrorCreateFile());
-
-        //     // }, this.onErrorLoadFs());
-        // },
-
-        // onErrorCreateFile(){
-        //     alert("Error creating file")
-        // },
-
-        // onErrorLoadFs(){
-        //     alert("Error loading File System")
-        // }
-    
+        }    
+        
     },
 
     mounted() {
