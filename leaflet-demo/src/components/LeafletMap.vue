@@ -7,7 +7,8 @@
 
           <br />
           <input type="text" v-model="kmlUrl" placeholder="Enter url for KML">          
-          <button @click="kmlGoClick">Go</button>
+          <button @click="kmlGoClick">Go</button>          
+          <button @click="refreshPage">Refresh Page</button>            
 
           <br />
           
@@ -81,6 +82,10 @@ export default {
                 map.fitBounds(event.target.getBounds());                
             })
             .addTo(map);
+        },
+
+        refreshPage(){
+            this.$router.go()            
         }
 
     }
