@@ -21,7 +21,7 @@
 
      <size       x="0"   y="0"   xunits="fraction" yunits="fraction" />
 
-     <Icon><href>the_png_says.png</href></Icon>
+     <Icon><href>http://maps.google.com/mapfiles/kml/pal4/icon28.png</href></Icon>
   
   </ScreenOverlay>
 
