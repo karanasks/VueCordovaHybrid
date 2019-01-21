@@ -1,37 +1,63 @@
 <template>
-  <div class="hello">
-    <img src="../assets/logo.png">
-    <h1>{{ msg }}</h1>   
-    <br />
-    <input type="text" v-model="kmlUrl" placeholder="Enter url for KML">              
-    <button @click="openMap">Open Map</button>
-
-    <!-- <div>Demo KMl files</div>
-    <br />
-    <label>Test KML 1:</label><div>https://raw.githubusercontent.com/karanasks/VueCordovaHybrid/master/leaflet-demo/src/assets/KML%20Samples/Sample11.kml</div>
-    <br />
-    <label>Test KML 2:</label><div>https://raw.githubusercontent.com/karanasks/VueCordovaHybrid/master/leaflet-demo/src/assets/KML%20Samples/Sample14.kml</div>  -->
+  <div>  
+    <div id="map" style="width: 100%; height: 100%; display: block;"></div>   
   </div>  
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'HelloWorld',  
+  
   data () {
     return {
-      msg: 'Leaflet demo app',
-      kmlUrl: 'https://raw.githubusercontent.com/karanasks/VueCordovaHybrid/master/leaflet-demo/src/assets/KML%20Samples/Sample11.kml'
+
     }
   },
+
   methods: {
-    openMap() {
-      if(this.kmlUrl != ''){
-        localStorage.kmlUrl =this.kmlUrl 
-        this.$router.push("/LeafletMap");
-      }
-      else
-        alert('Enter URL for KML file.')      
+    initMap() {       
+
+        var control;
+        var L = window.L;        
+        var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; 2013 OpenStreetMap contributors'
+        });
+        var map = L.map('map', {
+            center: [0, 0],
+            zoom: 2
+        }).addLayer(osm);
+
+        var style = {
+            color: 'red',
+            opacity: 1.0,
+            fillOpacity: 1.0,
+            weight: 2,
+            clickable: false
+        };
+        L.Control.FileLayerLoad.LABEL = 'Up';
+        control = L.Control.fileLayerLoad({
+            fitBounds: true,
+            layerOptions: {
+                style: style,
+                pointToLayer: function (data, latlng) {
+                    return L.circleMarker(
+                        latlng,
+                        { style: style }
+                    );
+                }
+            }
+        });
+        control.addTo(map);
+        control.loader.on('data:loaded', function (e) {
+            var layer = e.layer;
+            console.log(layer);
+        });
     }
+   
+  },
+
+  mounted(){
+    this.initMap()
   }
 }
 </script>
