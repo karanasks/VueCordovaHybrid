@@ -70,7 +70,7 @@
     <Folder>
       <name>BIAs</name>     
       <Placemark>
-        <name>Small BIA</name>
+        <name>Small BIA by Karan</name>
         <description><![CDATA[{"severity":1,"desc":"a smaller polygon \"BIA\""}]]></description>
         <styleUrl>#poly-0097A7-1200-77</styleUrl>
         <Polygon>
