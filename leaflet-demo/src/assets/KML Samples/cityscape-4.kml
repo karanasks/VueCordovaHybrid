@@ -71,7 +71,7 @@
       <name>BIAs</name>
       <Placemark>
         <name>Big BIA</name>
-        <description><![CDATA[{"severity":3,"desc":"This is a large BIA with details."}]]></description>
+        <description><![CDATA[{"accessibility":3,"desc":"This is a large BIA with details."}]]></description>
         <styleUrl>#poly-FF5252-1200-77</styleUrl>
         <Polygon>
           <outerBoundaryIs>
@@ -93,7 +93,7 @@
       </Placemark>
       <Placemark>
         <name>Small BIA</name>
-        <description><![CDATA[{"severity":1,"desc":"a smaller polygon "BIA""}]]></description>
+        <description><![CDATA[{"accessibility":1,"desc":"a smaller polygon \"BIA\""}]]></description>
         <styleUrl>#poly-0097A7-1200-77</styleUrl>
         <Polygon>
           <outerBoundaryIs>
