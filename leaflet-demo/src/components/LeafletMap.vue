@@ -1,22 +1,11 @@
 <template>
   <div>      
-      <div>
+      <div>            
           <div>
-              <h1>{{msg}}</h1>
+              <span @click="moveBack" style="float: left;"><i class="material-icons">keyboard_backspace</i></span>
+              <h4>{{msg}}</h4>
           </div>
 
-          <br />
-          <input type="text" v-model="kmlUrl" placeholder="Enter url for KML">          
-          <button @click="kmlGoClick">Go</button>          
-          <button @click="refreshPage">Refresh Page</button>            
-
-          <br />
-          
-          <label>Test KML 1:</label><div>https://storage.googleapis.com/cfb-documents/cityscape-3.kml</div>
-          <br />
-          <label>Test KML 2:</label><div>https://storage.googleapis.com/cfb-documents/cityscape-4.kml</div>          
-          
-          <br />          
           <div id='leafMap' ref='leafletMapArea'></div>          
       </div>      
   </div>
@@ -29,22 +18,15 @@ export default {
 
     data () {
         return {
-            msg: 'Leaflet Maps Demo',
-            fileData: null,
+            msg: 'Map Viewer',            
             kmlUrl: ''
         }
     },
 
     methods: {
-        
-        kmlGoClick() {
-            if(this.kmlUrl != '')
-                this.plotKmlFromUrl()
-            else
-                alert('Enter URL for KML file.')
-        },
 
-        plotKmlFromUrl() {            
+        loadKml() { 
+            this.kmlUrl = localStorage.kmlUrl;
             L.mapbox.accessToken = 'pk.eyJ1Ijoia2FyYW5hc2tzIiwiYSI6ImNqcjBiajhieDBubXA0NXFxZHhkZG56YWgifQ.EZy14EoG6-82Qepje2p4dw';
 
             var osmUrl = "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
@@ -84,10 +66,14 @@ export default {
             .addTo(map);
         },
 
-        refreshPage(){
-            this.$router.go()            
+        moveBack(){
+            this.$router.go(-1)            
         }
+                
+    },
 
+    mounted(){
+        this.loadKml();
     }
 
 }
@@ -95,5 +81,5 @@ export default {
 
 <style scoped>
     body { margin:0; padding:0; }    
-    #leafMap { height: 390px; }
+    #leafMap { height: 590px; }
 </style>
