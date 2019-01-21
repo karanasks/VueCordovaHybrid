@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 
-  <GroundOverlay>
+  <Placemark>
 
-    <name>What does the png say?</name>
+    <name>A simple placemark on the ground</name>
 
-    <Icon>
-      <href>the_png_says.png</href>
-    </Icon>
+    <Point>
+			<coordinates>8.542952335953721,47.36685263064198,0</coordinates>
+    </Point>
 
-  	<LatLonBox>
-  		<north>46.77980155828784</north>
-  		<south>46.65804355828784</south>
-
-  		<east>9.144871415151389</east>
-  		<west>8.433995415151397</west>
-
-  		<rotation>30</rotation>
-  	</LatLonBox>
-
-
-  </GroundOverlay>
+  </Placemark>
 
 </kml>
