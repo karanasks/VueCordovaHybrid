@@ -47,9 +47,9 @@ export default {
         };        
 
         var overlayMaps = {};
+        
+        L.Control.FileLayerLoad.LABEL = '<span style="font-size: 18px;"><i class="fas fa-folder-open"></i></span>';
 
-        debugger
-        L.Control.FileLayerLoad.LABEL = 'Up';
         control = L.Control.fileLayerLoad({
             fitBounds: true,
             layerOptions: {
@@ -65,7 +65,7 @@ export default {
                 onEachFeature: function(feature, layer) {                   
                     // for assigning custom colour to KML
                     layer.defaultOptions.style.color = kmlColor;
-                    
+
                     // Need to assign a random name in case it is not defined in the file. You may not need this.
                     var name = feature.properties.name;
                     if (typeof name === "undefined") {
